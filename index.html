@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Body Systems — Study Notes | Batterjee Prep Year</title>
+<style>
+  :root{
+    --bg:#0a0e16;
+    --panel:#121a2b;
+    --panel2:#0f1626;
+    --line:#22304d;
+    --text:#e7ecf7;
+    --muted:#8b97b0;
+    --soft:#aeb9d2;
+    --endocrine:#34d2b0;
+    --nervous:#a78bfa;
+    --respiratory:#38bdf8;
+    --urinary:#f5b53d;
+    --cardiovascular:#f06d76;
+    --immune:#5fd97a;
+    --digestive:#fb923c;
+    --accent:var(--endocrine);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:118px;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 600px at 80% -10%, rgba(52,210,176,.06), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(167,139,250,.05), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px;}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg, rgba(8,11,18,.97), rgba(8,11,18,.86));
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{max-width:1080px;margin:0 auto;padding:14px 20px 12px;}
+  .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .brand h1{
+    font-size:23px;margin:0;letter-spacing:-.4px;font-weight:700;
+  }
+  .brand .accentword{color:var(--accent);transition:color .35s;}
+  .brand .sub{color:var(--muted);font-size:12.5px;letter-spacing:.3px;}
+  .searchrow{display:flex;gap:10px;margin-top:11px;align-items:center;}
+  #search{
+    flex:1;background:var(--panel2);border:1px solid var(--line);color:var(--text);
+    padding:9px 13px;border-radius:10px;font-size:14px;outline:none;
+  }
+  #search:focus{border-color:var(--accent);}
+  #search::placeholder{color:#5d6b86;}
+  #clearBtn{
+    background:var(--panel);border:1px solid var(--line);color:var(--muted);
+    border-radius:10px;padding:9px 12px;cursor:pointer;font-size:13px;
+  }
+  #clearBtn:hover{color:var(--text);border-color:var(--accent);}
+  .pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px;}
+  .pill{
+    border:1px solid var(--line);background:var(--panel2);
+    color:var(--soft);font-size:12.5px;font-weight:600;
+    padding:6px 12px;border-radius:999px;cursor:pointer;
+    transition:all .18s;white-space:nowrap;
+  }
+  .pill:hover{color:var(--text);transform:translateY(-1px);}
+  .pill[data-sys="Endocrine"]{--c:var(--endocrine);}
+  .pill[data-sys="Nervous"]{--c:var(--nervous);}
+  .pill[data-sys="Respiratory"]{--c:var(--respiratory);}
+  .pill[data-sys="Urinary"]{--c:var(--urinary);}
+  .pill[data-sys="Cardiovascular"]{--c:var(--cardiovascular);}
+  .pill[data-sys="Immune"]{--c:var(--immune);}
+  .pill[data-sys="Digestive"]{--c:var(--digestive);}
+  .pill.active{
+    color:#08101b;background:var(--c);border-color:var(--c);
+  }
+  .pill .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:middle;}
+  .pill.active .dot{background:#08101b;}
+
+  /* ---------- intro ---------- */
+  .hero{
+    margin-top:30px;padding:26px 26px 24px;border-radius:18px;
+    background:linear-gradient(135deg, rgba(18,26,43,.9), rgba(15,22,38,.65));
+    border:1px solid var(--line);
+  }
+  .hero .eyebrow{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+  .hero h2{margin:8px 0 8px;font-size:30px;letter-spacing:-.6px;line-height:1.15;}
+  .hero p{margin:0;color:var(--soft);max-width:70ch;font-size:14.5px;}
+  .hero .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px;}
+  .hero .meta div{font-size:13px;color:var(--muted);}
+  .hero .meta b{display:block;color:var(--text);font-size:20px;font-weight:700;letter-spacing:-.3px;}
+
+  /* ---------- section ---------- */
+  .system{margin-top:46px;scroll-margin-top:120px;}
+  .system-head{
+    display:flex;align-items:center;gap:14px;
+    padding:16px 18px;border-radius:14px 14px 0 0;
+    border:1px solid var(--line);border-bottom:none;
+    background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 14%, var(--panel)), var(--panel));
+  }
+  .system-head .num{
+    font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--accent);
+    border:1px solid color-mix(in srgb,var(--accent) 45%, var(--line));
+    border-radius:8px;padding:4px 9px;font-weight:700;
+  }
+  .system-head h3{margin:0;font-size:22px;letter-spacing:-.3px;}
+  .system-head .tagline{margin-left:auto;color:var(--muted);font-size:12.5px;text-align:right;max-width:40ch;}
+
+  .system-body{
+    border:1px solid var(--line);border-radius:0 0 14px 14px;
+    border-left:3px solid var(--accent);
+    background:var(--panel2);
+    padding:6px 22px 22px;
+  }
+
+  /* diagram */
+  .figure{
+    margin:20px 0 8px;padding:18px;border-radius:12px;
+    background:radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,.025), transparent);
+    border:1px dashed var(--line);text-align:center;
+  }
+  .figure svg{max-width:100%;height:auto;}
+  .figure .cap{margin-top:10px;color:var(--muted);font-size:12px;font-style:italic;}
+
+  /* topic block */
+  .topic{margin-top:24px;}
+  .topic > h4{
+    display:flex;align-items:center;gap:10px;
+    margin:0 0 10px;font-size:16px;letter-spacing:-.2px;
+  }
+  .topic > h4 .tnum{
+    font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--accent);
+    opacity:.9;letter-spacing:1px;
+  }
+  .topic > h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+  ul.notes{margin:0;padding:0;list-style:none;}
+  ul.notes li{
+    position:relative;padding:4px 0 4px 20px;color:var(--soft);font-size:14px;
+  }
+  ul.notes li::before{
+    content:"";position:absolute;left:2px;top:12px;width:6px;height:6px;border-radius:50%;
+    background:var(--accent);opacity:.85;
+  }
+  ul.notes li b{color:var(--text);font-weight:600;}
+  ul.notes li .k{color:var(--accent);font-weight:600;}
+
+  /* mini table */
+  table.mini{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:13.5px;}
+  table.mini caption{text-align:left;color:var(--muted);font-size:12px;margin-bottom:6px;font-style:italic;}
+  table.mini th,table.mini td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;}
+  table.mini th{background:color-mix(in srgb,var(--accent) 12%, var(--panel));color:var(--text);font-weight:600;}
+  table.mini td{color:var(--soft);}
+  table.mini td:first-child{color:var(--text);font-weight:600;white-space:nowrap;}
+
+  /* disease box */
+  .disease{
+    margin-top:14px;padding:13px 15px;border-radius:11px;
+    background:rgba(240,109,118,.07);
+    border:1px solid rgba(240,109,118,.32);
+    border-left:3px solid var(--cardiovascular);
+  }
+  .disease h5{margin:0 0 4px;font-size:14px;color:#ff9aa1;display:flex;align-items:center;gap:8px;}
+  .disease h5 .tag{font-size:10px;font-family:ui-monospace,Menlo,monospace;letter-spacing:1px;color:#ff9aa1;border:1px solid rgba(240,109,118,.4);border-radius:6px;padding:2px 6px;text-transform:uppercase;}
+  .disease p{margin:3px 0 0;font-size:13.5px;color:var(--soft);}
+  .disease p b{color:#ffd7da;}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;}
+  @media(max-width:680px){.twocol{grid-template-columns:1fr;}}
+
+  /* search states */
+  .topic.hidden,.disease.hidden,ul.notes li.hidden{display:none;}
+  .system.dim{opacity:.32;}
+  mark{background:color-mix(in srgb,var(--accent) 42%, transparent);color:#fff;border-radius:3px;padding:0 2px;}
+
+  .noresults{display:none;margin-top:40px;text-align:center;color:var(--muted);font-size:15px;}
+  .noresults.show{display:block;}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;text-align:center;}
+
+  /* back to top */
+  #toTop{
+    position:fixed;right:20px;bottom:22px;z-index:60;
+    width:44px;height:44px;border-radius:50%;cursor:pointer;
+    background:var(--accent);color:#08101b;border:none;font-size:20px;font-weight:700;
+    box-shadow:0 8px 24px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+  }
+  #toTop.show{opacity:1;pointer-events:auto;}
+  #toTop:hover{transform:translateY(-3px);}
+
+  @media print{
+    header.top,#toTop,.searchrow,.pills{display:none;}
+    body{background:#fff;color:#000;}
+    .system-body,.system-head,.hero{border-color:#ccc;background:#fff;}
+    ul.notes li{color:#111;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <h1>Body Systems · <span class="accentword" id="brandAccent">Study Notes</span></h1>
+      <span class="sub">Batterjee Medical College — Preparatory Year · condensed from the 7-system question bank</span>
+    </div>
+    <div class="searchrow">
+      <input id="search" type="text" placeholder="Search all notes — e.g. aldosterone, nephron, vagus, IgA…" autocomplete="off">
+      <button id="clearBtn">Clear</button>
+    </div>
+    <div class="pills" id="pills">
+      <div class="pill active" data-sys="all">All</div>
+      <div class="pill" data-sys="Endocrine"><span class="dot"></span>Endocrine</div>
+      <div class="pill" data-sys="Nervous"><span class="dot"></span>Nervous</div>
+      <div class="pill" data-sys="Respiratory"><span class="dot"></span>Respiratory</div>
+      <div class="pill" data-sys="Urinary"><span class="dot"></span>Urinary</div>
+      <div class="pill" data-sys="Cardiovascular"><span class="dot"></span>Cardiovascular</div>
+      <div class="pill" data-sys="Immune"><span class="dot"></span>Immune & Lymphatic</div>
+      <div class="pill" data-sys="Digestive"><span class="dot"></span>Digestive</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Revision Reference</div>
+    <h2>Seven systems, one clean sheet.</h2>
+    <p>Every fact below is distilled from your master quiz bank and grouped by system and topic — definitions, structures, hormones, pathways, and the diseases your slides flagged. Use the pills to jump to a system, or search to pull a single term out of all 7 at once.</p>
+    <div class="meta">
+      <div><b>7</b>body systems</div>
+      <div><b>30+</b>topic blocks</div>
+      <div><b>25</b>diseases &amp; disorders</div>
+      <div><b>406</b>source questions</div>
+    </div>
+  </section>
+
+  <!-- ================= ENDOCRINE ================= -->
+  <section class="system" id="Endocrine" style="--accent:var(--endocrine);">
+    <div class="system-head">
+      <span class="num">01</span>
+      <h3>Endocrine System</h3>
+      <span class="tagline">Ductless glands · hormones via blood · slow but long-lasting control</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 560 300" role="img" aria-label="Endocrine glands diagram">
+          <defs><style>
+            .eo{fill:none;stroke:#2c3a58;stroke-width:1.4}
+            .gl{fill:var(--endocrine)}
+            .lb{fill:#aeb9d2;font:12px 'Segoe UI',sans-serif}
+            .lk{stroke:#34d2b0;stroke-width:1;opacity:.55}
+          </style></defs>
+          <!-- body silhouette -->
+          <path class="eo" d="M280 18c-15 0-26 11-26 26 0 9 4 15 9 20-14 5-24 16-24 38v60c0 10 4 16 4 28l-4 64c-1 8 14 8 15 0l6-58h20l6 58c1 8 16 8 15 0l-4-64c0-12 4-18 4-28v-60c0-22-10-33-24-38 5-5 9-11 9-20 0-15-11-26-26-26z"/>
+          <!-- glands as dots -->
+          <circle class="gl" cx="280" cy="34" r="4"/>
+          <circle class="gl" cx="280" cy="40" r="3.4"/>
+          <circle class="gl" cx="280" cy="66" r="4"/>
+          <circle class="gl" cx="280" cy="74" r="3.2"/>
+          <circle class="gl" cx="280" cy="92" r="3.2"/>
+          <circle class="gl" cx="266" cy="120" r="4"/>
+          <circle class="gl" cx="294" cy="120" r="4"/>
+          <circle class="gl" cx="278" cy="150" r="4.5"/>
+          <circle class="gl" cx="290" cy="190" r="4"/>
+          <!-- left labels -->
+          <g class="lb" text-anchor="end">
+            <text x="150" y="32">Hypothalamus</text><line class="lk" x1="154" y1="29" x2="276" y2="34"/>
+            <text x="150" y="56">Pituitary (master)</text><line class="lk" x1="154" y1="53" x2="276" y2="40"/>
+            <text x="150" y="80">Thyroid &amp; Parathyroid</text><line class="lk" x1="154" y1="77" x2="276" y2="70"/>
+            <text x="150" y="104">Thymus</text><line class="lk" x1="154" y1="101" x2="276" y2="92"/>
+          </g>
+          <!-- right labels -->
+          <g class="lb">
+            <text x="410" y="40">Pineal (melatonin)</text><line class="lk" x1="406" y1="37" x2="284" y2="34"/>
+            <text x="410" y="124">Adrenals (on kidneys)</text><line class="lk" x1="406" y1="121" x2="298" y2="120"/>
+            <text x="410" y="154">Pancreas (islets)</text><line class="lk" x1="406" y1="151" x2="283" y2="150"/>
+            <text x="410" y="194">Gonads (sex hormones)</text><line class="lk" x1="406" y1="191" x2="294" y2="190"/>
+          </g>
+        </svg>
+        <div class="cap">Major endocrine glands — schematic locations</div>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.1</span> Hormones &amp; Glands — basics</h4>
+        <ul class="notes">
+          <li><span class="k">Hormone</span> = chemical messenger secreted directly into blood that binds a <b>receptor</b> in a target tissue to change its function.</li>
+          <li><b>Target cells</b> carry the matching receptor; one hormone can have <b>many</b> target cells, and a cell can hold receptors for more than one hormone.</li>
+          <li><b>Endocrine glands</b> are <b>ductless</b> → secrete into the bloodstream. <b>Exocrine</b> glands have ducts (e.g. salivary, sweat glands).</li>
+          <li><b>Mixed glands</b> (both functions): the <b>pancreas</b> and <b>gonads</b>.</li>
+          <li><b>Steroid hormones</b> — made from <b>cholesterol</b> (a lipid); lipid-soluble, cross the membrane and bind receptors in the <b>cytoplasm</b>. Example: <b>estrogen</b>, testosterone, progesterone.</li>
+          <li><b>Non-steroid hormones</b> — amino acids / peptides / proteins; <b>not</b> lipid-soluble, so bind <b>cell-surface</b> receptors. Examples: epinephrine, norepinephrine, growth hormone.</li>
+        </ul>
+        <table class="mini">
+          <caption>Hormone classification examples</caption>
+          <tr><th>Class</th><th>Example</th><th>Note</th></tr>
+          <tr><td>Peptide</td><td>Oxytocin</td><td>short amino-acid chain</td></tr>
+          <tr><td>Protein</td><td>Human Growth Hormone</td><td>long amino-acid chain</td></tr>
+          <tr><td>Amine</td><td>Norepinephrine</td><td>modified single amino acid</td></tr>
+          <tr><td>Steroid</td><td>Testosterone, Progesterone</td><td>derived from cholesterol</td></tr>
+        </table>
+        <table class="mini">
+          <caption>Nervous vs Endocrine control</caption>
+          <tr><th></th><th>Nervous</th><th>Endocrine</th></tr>
+          <tr><td>Message</td><td>electrical impulse along neurons</td><td>chemical hormones in blood</td></tr>
+          <tr><td>Speed</td><td>very rapid</td><td>can be slow</td></tr>
+          <tr><td>Duration</td><td>brief</td><td>may take years (e.g. growth)</td></tr>
+          <tr><td>Area</td><td>localized</td><td>widespread</td></tr>
+          <tr><td>Example</td><td>reflexes, blinking</td><td>reproductive development</td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.2</span> Hypothalamus &amp; Pituitary</h4>
+        <ul class="notes">
+          <li>The <b>hypothalamus</b> links the nervous &amp; endocrine systems; its releasing/inhibiting hormones control the <b>anterior pituitary</b>.</li>
+          <li><b>Oxytocin</b> and <b>ADH</b> are made in the hypothalamus but <b>stored &amp; released by the posterior pituitary</b>.</li>
+        </ul>
+        <table class="mini">
+          <caption>Anterior pituitary hormones</caption>
+          <tr><th>Hormone</th><th>Target / action</th></tr>
+          <tr><td>GH</td><td>growth of muscle &amp; bone</td></tr>
+          <tr><td>PRL (Prolactin)</td><td>mammary gland → milk production</td></tr>
+          <tr><td>ACTH</td><td>adrenal cortex</td></tr>
+          <tr><td>TSH</td><td>thyroid gland</td></tr>
+          <tr><td>FSH &amp; LH</td><td>ovaries &amp; testes (sex hormones)</td></tr>
+        </table>
+        <table class="mini">
+          <caption>Posterior pituitary hormones</caption>
+          <tr><th>Hormone</th><th>Target / action</th></tr>
+          <tr><td>Oxytocin</td><td>uterus (labor contractions) + mammary gland (milk ejection)</td></tr>
+          <tr><td>ADH</td><td>kidney → reabsorb water (less urine)</td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.3</span> Thyroid · Parathyroid · Thymus · Pineal</h4>
+        <ul class="notes">
+          <li><b>Pineal</b> → <b>melatonin</b>, regulating the <b>circadian (sleep–wake)</b> rhythm.</li>
+          <li><b>Thyroid</b> sits below the larynx, butterfly-shaped. <b>Follicular cells</b> make <b>T3 &amp; T4</b> (growth, development, metabolism). <b>Parafollicular (C) cells</b> make <b>calcitonin</b>, which <b>lowers</b> blood calcium.</li>
+          <li><b>Parathyroid</b> — 4 glands on the <b>posterior</b> thyroid. <b>PTH raises blood calcium</b>: activates osteoclasts (remove Ca from bone) and boosts Ca absorption in kidney &amp; intestine.</li>
+          <li><b>Thymus</b> — behind the sternum between the lungs; key in <b>childhood</b>. Releases <b>thymosin</b> → matures <b>T lymphocytes</b>.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.4</span> Adrenal Gland</h4>
+        <ul class="notes">
+          <li>Also called <b>suprarenal</b> glands — sit <b>on top of each kidney</b>.</li>
+          <li><b>Cortex</b> (outer) = steroid hormones; <b>medulla</b> (inner) = catecholamines.</li>
+        </ul>
+        <table class="mini">
+          <caption>Adrenal cortex zones (outer → inner)</caption>
+          <tr><th>Zone</th><th>Hormone class</th><th>Example</th></tr>
+          <tr><td>Zona glomerulosa</td><td>mineralocorticoids</td><td>aldosterone (ion balance)</td></tr>
+          <tr><td>Zona fasciculata</td><td>glucocorticoids</td><td>cortisol (glucose metabolism)</td></tr>
+          <tr><td>Zona reticularis</td><td>androgens</td><td>testosterone, estrogen</td></tr>
+        </table>
+        <ul class="notes">
+          <li><b>Adrenal medulla</b> → <b>epinephrine</b> + <b>norepinephrine</b> during the <b>fight-or-flight</b> response: ↑ heart rate, ↑ blood pressure, ↑ blood glucose, ↑ respiratory rate.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.5</span> Pancreas &amp; Gonads</h4>
+        <ul class="notes">
+          <li>Endocrine pancreas = <b>islets of Langerhans</b>; exocrine = <b>acini</b> (digestive enzymes).</li>
+          <li><b>Alpha → glucagon</b> (raises glucose). <b>Beta → insulin</b> (lowers glucose). <b>Delta → somatostatin</b> (regulates digestion).</li>
+          <li>Gonads are <b>mixed</b>: sex hormones (endocrine) + gametes/sperm &amp; ova (exocrine).</li>
+          <li><b>Ovaries</b> → <b>estrogen</b> (secondary sex characteristics) &amp; <b>progesterone</b> (prepares uterus for pregnancy).</li>
+          <li><b>Testes</b> — interstitial cells → <b>testosterone</b> (secondary sex characteristics + sperm production).</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Endocrine">
+        <h4><span class="tnum">1.6</span> Feedback Mechanisms &amp; Diseases</h4>
+        <ul class="notes">
+          <li><span class="k">Negative feedback</span> — output <b>reduces</b> the original stimulus. Thyroid loop: ↓T3/T4 → hypothalamus releases <b>TRH</b> → pituitary releases <b>TSH</b> → thyroid releases <b>T3/T4</b>.</li>
+          <li><span class="k">Positive feedback</span> — output <b>enhances</b> the original effect. Example: suckling → <b>prolactin</b> → milk secretion (amplifies).</li>
+        </ul>
+        <div class="disease" data-sys="Endocrine">
+          <h5>Cushing Syndrome <span class="tag">↑ Cortisol</span></h5>
+          <p>Long-term high <b>cortisol</b>. Signs: weight gain at the waist/face/upper back, thin easily-bruised skin, severe fatigue, muscle weakness, depression &amp; anxiety.</p>
+        </div>
+        <div class="disease" data-sys="Endocrine">
+          <h5>Graves' Disease <span class="tag">Autoimmune · Hyperthyroid</span></h5>
+          <p>Immune system drives the thyroid to <b>overproduce</b> hormone. Signs: <b>bulging eyes</b>, anxiety, heat intolerance, difficulty sleeping.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= NERVOUS ================= -->
+  <section class="system" id="Nervous" style="--accent:var(--nervous);">
+    <div class="system-head">
+      <span class="num">02</span>
+      <h3>Nervous System</h3>
+      <span class="tagline">Fast electrical signalling · neurons + glia · CNS &amp; PNS</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 560 230" role="img" aria-label="Neuron structure diagram">
+          <defs><style>
+            .nb{fill:#a78bfa;opacity:.18;stroke:#a78bfa;stroke-width:1.6}
+            .nbl{fill:#aeb9d2;font:12px 'Segoe UI',sans-serif}
+            .nl{stroke:#a78bfa;stroke-width:1;opacity:.5}
+            .my{fill:#a78bfa;opacity:.5}
+          </style></defs>
+          <!-- dendrites -->
+          <g stroke="#a78bfa" stroke-width="1.6" fill="none" opacity=".75">
+            <path d="M70 60 L120 100"/><path d="M64 95 L120 110"/><path d="M70 135 L120 120"/>
+            <path d="M44 70 L70 60"/><path d="M40 100 L64 95"/><path d="M46 150 L70 135"/>
+          </g>
+          <!-- soma -->
+          <circle class="nb" cx="140" cy="110" r="26"/>
+          <circle cx="140" cy="110" r="9" fill="#a78bfa" opacity=".85"/>
+          <!-- axon -->
+          <line x1="166" y1="110" x2="470" y2="110" stroke="#a78bfa" stroke-width="3"/>
+          <!-- myelin segments -->
+          <rect class="my" x="210" y="100" width="50" height="20" rx="9"/>
+          <rect class="my" x="285" y="100" width="50" height="20" rx="9"/>
+          <rect class="my" x="360" y="100" width="50" height="20" rx="9"/>
+          <!-- terminals -->
+          <g stroke="#a78bfa" stroke-width="1.6" fill="none">
+            <path d="M470 110 L505 92"/><path d="M470 110 L508 110"/><path d="M470 110 L505 128"/>
+          </g>
+          <circle cx="506" cy="92" r="3.5" fill="#a78bfa"/><circle cx="509" cy="110" r="3.5" fill="#a78bfa"/><circle cx="506" cy="128" r="3.5" fill="#a78bfa"/>
+          <!-- labels -->
+          <g class="nbl">
+            <text x="30" y="40" text-anchor="middle">Dendrites</text><line class="nl" x1="40" y1="46" x2="55" y2="70"/>
+            <text x="140" y="60" text-anchor="middle">Cell body (soma)</text><line class="nl" x1="140" y1="66" x2="140" y2="84"/>
+            <text x="140" y="160" text-anchor="middle">+ nucleus</text>
+            <text x="290" y="80" text-anchor="middle">Myelin sheath</text><line class="nl" x1="290" y1="86" x2="285" y2="100"/>
+            <text x="270" y="150" text-anchor="middle">Node of Ranvier</text><line class="nl" x1="270" y1="138" x2="272" y2="118"/>
+            <text x="305" y="110" text-anchor="middle" fill="#7d88a3">Axon →</text>
+            <text x="510" y="160" text-anchor="middle">Axon terminals</text><line class="nl" x1="508" y1="148" x2="506" y2="132"/>
+          </g>
+        </svg>
+        <div class="cap">Neuron — impulse travels dendrite → cell body → axon → terminals</div>
+      </div>
+
+      <div class="topic" data-sys="Nervous">
+        <h4><span class="tnum">2.1</span> Neurons &amp; Neuroglia</h4>
+        <ul class="notes">
+          <li>Nervous tissue = <b>neurons</b> (functional units, carry signals) + <b>neuroglia</b> (support &amp; nourish).</li>
+          <li>Neuron parts: <b>dendrites</b> (carry impulses <b>toward</b> soma), <b>cell body/soma</b> (nucleus + organelles), <b>axon</b> (carries impulses <b>away</b>). <b>Myelin sheath</b> = insulating lipid layer.</li>
+        </ul>
+        <table class="mini">
+          <caption>Functional neuron types</caption>
+          <tr><th>Type</th><th>Direction</th></tr>
+          <tr><td>Sensory (afferent)</td><td>receptors → CNS</td></tr>
+          <tr><td>Interneurons</td><td>integrate within CNS</td></tr>
+          <tr><td>Motor (efferent)</td><td>CNS → effectors (muscle/gland)</td></tr>
+        </table>
+        <table class="mini">
+          <caption>Neuroglial cells</caption>
+          <tr><th>Cell</th><th>Role</th></tr>
+          <tr><td>Astrocytes</td><td>hold blood vessels &amp; neurons together (CNS)</td></tr>
+          <tr><td>Ependymal cells</td><td>make &amp; circulate CSF</td></tr>
+          <tr><td>Oligodendrocytes</td><td>form myelin in the <b>CNS</b></td></tr>
+          <tr><td>Microglia</td><td>CNS macrophages — destroy microbes</td></tr>
+          <tr><td>Satellite cells</td><td>regulate chemical environment (PNS)</td></tr>
+          <tr><td>Schwann cells</td><td>form myelin in the <b>PNS</b></td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Nervous">
+        <h4><span class="tnum">2.2</span> CNS · Brain &amp; Spinal Cord</h4>
+        <ul class="notes">
+          <li><b>CNS</b> = brain + spinal cord. <b>PNS</b> = cranial nerves + spinal nerves.</li>
+          <li><b>Meninges</b> (outer → inner): <b>Dura → Arachnoid → Pia</b> mater. <b>CSF</b> fills the spaces, cushions &amp; barriers against microbes.</li>
+          <li>Four brain parts: <b>cerebrum, cerebellum, brain stem, diencephalon</b> (not the hippocampus).</li>
+          <li><b>Cerebrum</b> — largest; 2 hemispheres; 4 lobes: <b>frontal, parietal, temporal, occipital</b>.</li>
+          <li><b>Cerebellum</b> — back of brain; <b>balance, posture</b> &amp; learning motor skills.</li>
+          <li><b>Brain stem</b> — connects brain to cord; = midbrain + pons + <b>medulla oblongata</b>; controls heart rate, breathing, blood pressure.</li>
+          <li><b>Diencephalon</b> — relay for sensory &amp; motor; holds <b>thalamus</b> + <b>hypothalamus</b> (controls pituitary, circadian rhythm, temperature, BP, heart rate).</li>
+          <li><b>Spinal cord</b> — ends ~<b>T12–L1</b>; <b>31 segments</b>, each giving a pair of spinal nerves; transmits signals between brain &amp; body.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Nervous">
+        <h4><span class="tnum">2.3</span> PNS &amp; Autonomic Nervous System</h4>
+        <ul class="notes">
+          <li><b>12</b> pairs cranial nerves (sensory, motor, or mixed); <b>31</b> pairs spinal nerves.</li>
+          <li>Spinal nerve pairs: <b>cervical 8 · thoracic 12 · lumbar 5 · sacral 5 · coccygeal 1</b>.</li>
+          <li>PNS splits into <b>somatic</b> (voluntary skeletal muscle) and <b>autonomic</b> (cardiac/smooth muscle, organs, glands).</li>
+        </ul>
+        <table class="mini">
+          <caption>Sympathetic vs Parasympathetic (ANS)</caption>
+          <tr><th>Organ</th><th>Sympathetic (fight/flight)</th><th>Parasympathetic (rest/digest)</th></tr>
+          <tr><td>Pupil</td><td>dilates</td><td>constricts</td></tr>
+          <tr><td>Salivation</td><td>inhibits</td><td>stimulates</td></tr>
+          <tr><td>Heart / bronchi</td><td>↑ rate, relaxes bronchi</td><td>↓ rate, constricts bronchi</td></tr>
+          <tr><td>Digestion</td><td>inhibits</td><td>stimulates</td></tr>
+          <tr><td>Liver</td><td>releases glucose</td><td>—</td></tr>
+          <tr><td>Bladder</td><td>relaxes</td><td>contracts</td></tr>
+          <tr><td>Adrenal</td><td>releases epi + norepi</td><td>—</td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Nervous">
+        <h4><span class="tnum">2.4</span> Reflex Arc &amp; Synapse</h4>
+        <ul class="notes">
+          <li><b>Reflex</b> = rapid, involuntary reaction. <b>Reflex arc</b> path: <b>receptor → sensory neuron → integration center (brain/cord) → motor neuron → effector</b>.</li>
+          <li><b>Nerve impulse</b> = electrical signal, travels <b>dendrite → cell body → axon</b>.</li>
+          <li><b>Synapse</b> — junction between neurons (or neuron–muscle/gland). The gap = <b>synaptic cleft</b>; presynaptic end-bulb stores <b>neurotransmitters</b>; receptors sit on the <b>postsynaptic membrane</b>.</li>
+          <li><b>Chemical synapse</b>: <b>Ca²⁺</b> enters terminal → vesicles fuse → neurotransmitter released → binds receptor proteins. <b>Electrical synapse</b>: current passes directly through channels.</li>
+          <li>Clearing the cleft: enzyme breakdown (<b>acetylcholinesterase</b> for ACh) <b>or</b> reabsorption by the presynaptic membrane.</li>
+          <li>Named neurotransmitters: <b>acetylcholine</b> &amp; <b>adrenaline</b>.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Nervous">
+        <h4><span class="tnum">2.5</span> Nervous System Disorders</h4>
+        <div class="disease" data-sys="Nervous">
+          <h5>Multiple Sclerosis (MS) <span class="tag">Autoimmune · Demyelinating</span></h5>
+          <p>Immune attack on a protein in the <b>myelin sheath</b> → disrupts <b>signal transmission</b>. Signs: double vision/vision loss, muscle weakness, loss of balance.</p>
+        </div>
+        <div class="disease" data-sys="Nervous">
+          <h5>Alzheimer's Disease <span class="tag">Neurodegenerative</span></h5>
+          <p>Causes ~<b>60–70%</b> of dementia. <b>Beta-amyloid</b> deposits around neurons. Earliest sign: difficulty remembering recent events; later: language problems, disorientation, mood swings, self-neglect.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= RESPIRATORY ================= -->
+  <section class="system" id="Respiratory" style="--accent:var(--respiratory);">
+    <div class="system-head">
+      <span class="num">03</span>
+      <h3>Respiratory System</h3>
+      <span class="tagline">Moves air for gas exchange · O₂ in, CO₂ out</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Respiratory tract diagram">
+          <defs><style>
+            .rp{fill:none;stroke:#38bdf8;stroke-width:2}
+            .rf{fill:#38bdf8;opacity:.16;stroke:#38bdf8;stroke-width:1.6}
+            .rl{fill:#aeb9d2;font:12px 'Segoe UI',sans-serif}
+            .rk{stroke:#38bdf8;stroke-width:1;opacity:.5}
+          </style></defs>
+          <!-- nose/pharynx/larynx -->
+          <circle cx="255" cy="34" r="12" class="rf"/>
+          <path class="rp" d="M255 46 L255 70"/>
+          <rect x="248" y="70" width="14" height="16" rx="4" class="rf"/>
+          <!-- trachea -->
+          <line x1="255" y1="86" x2="255" y2="135" stroke="#38bdf8" stroke-width="6"/>
+          <!-- bronchi -->
+          <path class="rp" d="M255 135 C235 150 215 155 200 175"/>
+          <path class="rp" d="M255 135 C275 150 295 155 310 175"/>
+          <!-- lungs -->
+          <path class="rf" d="M205 150 C160 165 150 235 200 235 C220 235 220 210 215 175 Z"/>
+          <path class="rf" d="M305 150 C350 165 360 235 310 235 C290 235 290 210 295 175 Z"/>
+          <!-- alveoli cluster -->
+          <g fill="#38bdf8" opacity=".7">
+            <circle cx="405" cy="195" r="9"/><circle cx="422" cy="188" r="8"/><circle cx="420" cy="205" r="7"/><circle cx="436" cy="197" r="8"/>
+          </g>
+          <line class="rk" x1="320" y1="200" x2="396" y2="196"/>
+          <!-- labels -->
+          <g class="rl">
+            <text x="150" y="34" text-anchor="end">Nose</text><line class="rk" x1="154" y1="31" x2="243" y2="34"/>
+            <text x="150" y="78" text-anchor="end">Pharynx / Larynx</text><line class="rk" x1="154" y1="75" x2="246" y2="78"/>
+            <text x="150" y="112" text-anchor="end">Trachea</text><line class="rk" x1="154" y1="109" x2="252" y2="112"/>
+            <text x="365" y="150">Bronchi</text><line class="rk" x1="361" y1="147" x2="310" y2="170"/>
+            <text x="375" y="178">Lungs</text>
+            <text x="450" y="225">Alveoli (gas exchange)</text><line class="rk" x1="446" y1="222" x2="424" y2="208"/>
+          </g>
+        </svg>
+        <div class="cap">Airway: nose → pharynx → larynx → trachea → bronchi → lungs (alveoli)</div>
+      </div>
+
+      <div class="topic" data-sys="Respiratory">
+        <h4><span class="tnum">3.1</span> Upper tract — nose to larynx</h4>
+        <ul class="notes">
+          <li>Main job: move air in/out for <b>gas exchange</b> — take in <b>oxygen</b>, remove <b>CO₂</b>.</li>
+          <li>Organs: nose, pharynx, larynx, trachea, bronchi, lungs (alveoli). The <b>esophagus is not</b> respiratory.</li>
+          <li><b>Nose</b> — only externally visible part; cavity split by the <b>nasal septum</b>; lined with <b>respiratory mucosa</b> that moistens air &amp; traps particles. <b>Olfactory receptors</b> sit on the superior mucosa. <b>Conchae</b> ↑ surface area. The <b>palate</b> separates nasal from oral cavity.</li>
+          <li><b>4 pairs of paranasal sinuses</b> — frontal, sphenoid, ethmoid, maxillary (not temporal). They lighten the skull &amp; add voice resonance.</li>
+          <li><b>Pharynx</b> — common path for air &amp; food. Regions: <b>nasopharynx</b> (behind nose), oropharynx, <b>laryngopharynx</b> (→ larynx).</li>
+          <li><b>Larynx</b> — largest cartilage = <b>thyroid cartilage</b> (Adam's apple). Space between vocal cords = <b>glottis</b>. <b>Epiglottis</b> covers the larynx during swallowing → stops food entering the trachea.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Respiratory">
+        <h4><span class="tnum">3.2</span> Lower tract &amp; lungs</h4>
+        <ul class="notes">
+          <li><b>Trachea</b> — reinforced by <b>C-shaped hyaline cartilage</b> (stops collapse); lined with <b>pseudostratified ciliated columnar epithelium</b>.</li>
+          <li><b>Bronchioles</b> &lt;1 mm; <b>terminal bronchioles</b> &lt;0.5 mm.</li>
+          <li><b>Respiratory zone</b> = respiratory bronchioles + alveolar ducts + <b>alveoli</b> (functional units; gas exchange by <b>diffusion</b>). <b>Conducting zone</b> = everything except alveoli.</li>
+          <li><b>Right lung = 3 lobes</b>, <b>left lung = 2 lobes</b>. <b>Base</b> rests on the diaphragm; <b>apex</b> near the clavicle.</li>
+          <li>Pleura: <b>parietal</b> lines the thoracic wall, <b>visceral</b> covers the lung. Inter-pleural fluid lets them glide.</li>
+          <li>Tract split: <b>upper</b> = nose, pharynx, larynx; <b>lower</b> = trachea, bronchi, bronchioles, alveoli, lungs.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Respiratory">
+        <h4><span class="tnum">3.3</span> Mechanics &amp; types of respiration</h4>
+        <ul class="notes">
+          <li><b>Diaphragm</b> — dome-shaped muscle separating thoracic &amp; abdominal cavities. Intercostals ↑ the antero-posterior chest diameter.</li>
+          <li><b>Inspiration = active</b>: diaphragm contracts, flattens, moves down. <b>Expiration = passive</b>: muscles relax.</li>
+          <li><b>External respiration</b> — alveoli ↔ pulmonary capillaries. <b>Internal respiration</b> — blood ↔ tissues. <b>Cellular respiration</b> — in <b>mitochondria</b>; uses O₂ to make ATP, produces <b>CO₂</b>.</li>
+        </ul>
+        <div class="disease" data-sys="Respiratory">
+          <h5>Pneumonia <span class="tag">Infection</span></h5>
+          <p>Inflames the <b>alveoli</b>, which fill with fluid/pus. Signs: cough, <b>high fever with chills &amp; sweating</b>, shortness of breath, chest pain, fatigue.</p>
+        </div>
+        <div class="disease" data-sys="Respiratory">
+          <h5>Bronchitis <span class="tag">Inflammation</span></h5>
+          <p>Inflammation of the <b>bronchial tubes</b>; most commonly <b>viral</b>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= URINARY ================= -->
+  <section class="system" id="Urinary" style="--accent:var(--urinary);">
+    <div class="system-head">
+      <span class="num">04</span>
+      <h3>Urinary System</h3>
+      <span class="tagline">Renal system · filters blood · ~180 L/day · makes urine</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 520 240" role="img" aria-label="Nephron diagram">
+          <defs><style>
+            .up{fill:none;stroke:#f5b53d;stroke-width:2.4}
+            .uf{fill:#f5b53d;opacity:.18;stroke:#f5b53d;stroke-width:1.6}
+            .ul{fill:#aeb9d2;font:11.5px 'Segoe UI',sans-serif}
+            .uk{stroke:#f5b53d;stroke-width:1;opacity:.5}
+          </style></defs>
+          <!-- glomerulus + bowman -->
+          <circle cx="95" cy="70" r="22" class="uf"/>
+          <circle cx="95" cy="70" r="11" fill="#f5b53d" opacity=".75"/>
+          <!-- PCT -->
+          <path class="up" d="M117 70 C150 60 150 95 180 85 C205 78 205 110 175 110"/>
+          <!-- loop of henle -->
+          <path class="up" d="M175 110 L185 180 C188 205 215 205 218 180 L228 110"/>
+          <!-- DCT -->
+          <path class="up" d="M228 110 C258 110 258 78 285 86 C312 93 312 60 290 65"/>
+          <!-- collecting duct -->
+          <line x1="295" y1="70" x2="360" y2="70" stroke="#f5b53d" stroke-width="5"/>
+          <path class="up" d="M360 70 L360 200"/>
+          <!-- labels -->
+          <g class="ul">
+            <text x="95" y="30" text-anchor="middle">Glomerulus +</text>
+            <text x="95" y="44" text-anchor="middle">Bowman's capsule</text>
+            <line class="uk" x1="95" y1="48" x2="95" y2="50"/>
+            <text x="175" y="135" text-anchor="middle">PCT</text>
+            <text x="201" y="225" text-anchor="middle">Loop of Henle</text><line class="uk" x1="201" y1="213" x2="201" y2="195"/>
+            <text x="300" y="48" text-anchor="middle">DCT</text>
+            <text x="400" y="70">Collecting</text><text x="400" y="84">duct → urine</text>
+            <line class="uk" x1="396" y1="74" x2="362" y2="100"/>
+          </g>
+        </svg>
+        <div class="cap">Nephron — filtrate path: glomerulus → Bowman's → PCT → loop → DCT → collecting duct</div>
+      </div>
+
+      <div class="topic" data-sys="Urinary">
+        <h4><span class="tnum">4.1</span> Functions &amp; hormones</h4>
+        <ul class="notes">
+          <li>Also called the <b>renal system</b>. Organs: <b>kidneys, ureters, bladder, urethra</b>.</li>
+          <li>~<b>180 L</b> filtered daily; only a fraction becomes urine. Nitrogenous wastes: <b>urea, creatinine, uric acid</b>.</li>
+          <li><b>Acid–base balance</b>: excrete <b>H⁺</b>, reabsorb bicarbonate; keep blood pH <b>7.35–7.45</b>.</li>
+          <li><b>Erythropoietin</b> — released when kidneys sense <b>low oxygen</b> → stimulates RBC production in bone marrow.</li>
+        </ul>
+        <table class="mini">
+          <caption>Renin–angiotensin–aldosterone (blood pressure)</caption>
+          <tr><th>Step</th><th>What happens</th></tr>
+          <tr><td>Renin</td><td>released by juxtaglomerular cells when BP is low</td></tr>
+          <tr><td>Angiotensinogen</td><td>made by liver → renin converts it to angiotensin I</td></tr>
+          <tr><td>ACE (lungs)</td><td>converts angiotensin I → angiotensin II</td></tr>
+          <tr><td>Angiotensin II</td><td>widespread vasoconstriction → ↑ BP</td></tr>
+          <tr><td>Aldosterone</td><td>kidney reabsorbs Na⁺ &amp; water → ↑ BP</td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Urinary">
+        <h4><span class="tnum">4.2</span> Kidney &amp; nephron anatomy</h4>
+        <ul class="notes">
+          <li>Kidneys are <b>bean-shaped</b>, protected by <b>perirenal fat</b>. Outer = <b>cortex</b>, inner = <b>medulla</b>. Pyramids drain into the <b>renal pelvis</b> → ureter.</li>
+          <li><b>Hilum</b> — where the renal artery enters and the renal vein + ureter exit. Blood enters via the <b>renal artery</b>.</li>
+          <li>Each kidney has <b>&gt;1 million nephrons</b> (functional units). <b>Cortical</b> nephrons ≈ 85%; <b>juxtamedullary</b> ≈ 15% (cortex–medulla margin).</li>
+          <li>Filtration at the <b>glomerulus</b> → <b>Bowman's capsule</b> → <b>PCT</b>. <b>Proteins &amp; blood cells</b> are too large to filter (stay in blood); water, salts, glucose, amino acids, urea pass through. The fluid is the <b>filtrate</b>.</li>
+          <li><b>Tubular secretion</b> — final adjustments &amp; pH control by secreting <b>H⁺</b>.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Urinary">
+        <h4><span class="tnum">4.3</span> Ureters, bladder &amp; urination</h4>
+        <ul class="notes">
+          <li><b>Ureters</b> — ~25 cm; smooth muscle creates <b>peristalsis</b> to push urine to the bladder.</li>
+          <li><b>Bladder</b> — lined with <b>transitional epithelium</b> (stretches); has <b>3 openings</b> (2 ureters + 1 urethra).</li>
+          <li>Sphincters: <b>internal</b> = smooth muscle (involuntary); <b>external</b> = skeletal muscle (voluntary).</li>
+          <li><b>Micturition (urination) reflex</b> — bladder fills → cord signals → <b>detrusor muscle contracts</b>, internal sphincter relaxes.</li>
+        </ul>
+        <div class="disease" data-sys="Urinary">
+          <h5>Polycystic Kidney Disease (PKD) <span class="tag">Genetic</span></h5>
+          <p>Gene changes → many cysts grow in the kidneys. Signs: high BP, back/side pain, <b>hematuria</b>, kidney stones, eventual failure.</p>
+        </div>
+        <div class="disease" data-sys="Urinary">
+          <h5>Acute Kidney Failure <span class="tag">Sudden</span></h5>
+          <p>Rapid loss of function over hours–days; can be life-threatening. <b>Oliguria/anuria</b> = decreased/absent urine output.</p>
+        </div>
+        <div class="disease" data-sys="Urinary">
+          <h5>Chronic Kidney Failure <span class="tag">Gradual</span></h5>
+          <p>Most common cause = <b>diabetes mellitus</b>, then high blood pressure.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CARDIOVASCULAR ================= -->
+  <section class="system" id="Cardiovascular" style="--accent:var(--cardiovascular);">
+    <div class="system-head">
+      <span class="num">05</span>
+      <h3>Cardiovascular System</h3>
+      <span class="tagline">Heart + blood vessels + blood · transports throughout the body</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 520 270" role="img" aria-label="Heart blood flow diagram">
+          <defs><style>
+            .hw{fill:#f06d76;opacity:.12;stroke:#f06d76;stroke-width:2}
+            .sep{stroke:#f06d76;stroke-width:1.6;opacity:.6}
+            .hl{fill:#aeb9d2;font:11.5px 'Segoe UI',sans-serif}
+            .hk{stroke:#f06d76;stroke-width:1;opacity:.5}
+            .blue{fill:#5aa0ff}.red{fill:#ff6b73}
+          </style></defs>
+          <!-- heart box -->
+          <rect x="170" y="50" width="180" height="170" rx="16" class="hw"/>
+          <line class="sep" x1="260" y1="55" x2="260" y2="215"/>
+          <line class="sep" x1="175" y1="130" x2="345" y2="130"/>
+          <!-- chamber labels -->
+          <g class="hl" text-anchor="middle" fill="#cfd6e6">
+            <text x="215" y="95">Right</text><text x="215" y="110">atrium</text>
+            <text x="305" y="95">Left</text><text x="305" y="110">atrium</text>
+            <text x="215" y="170">Right</text><text x="215" y="185">ventricle</text>
+            <text x="305" y="170">Left</text><text x="305" y="185">ventricle</text>
+          </g>
+          <!-- valve dots -->
+          <circle cx="215" cy="130" r="4" class="red"/><circle cx="305" cy="130" r="4" class="red"/>
+          <!-- vessels -->
+          <g class="hl">
+            <text x="120" y="80" text-anchor="end">Vena cava</text><line class="hk" x1="124" y1="77" x2="170" y2="80"/>
+            <text x="120" y="195" text-anchor="end">→ Pulmonary artery</text><line class="hk" x1="124" y1="192" x2="170" y2="185"/>
+            <text x="400" y="80">Pulmonary veins →</text><line class="hk" x1="396" y1="77" x2="350" y2="80"/>
+            <text x="400" y="195">Aorta (largest artery)</text><line class="hk" x1="396" y1="192" x2="350" y2="185"/>
+            <text x="215" y="142" text-anchor="middle" fill="#7d88a3" font-size="9">tricuspid</text>
+            <text x="305" y="142" text-anchor="middle" fill="#7d88a3" font-size="9">mitral</text>
+          </g>
+          <!-- flow note -->
+          <text x="260" y="248" text-anchor="middle" class="hl" fill="#8b97b0">Blue = O₂-poor → lungs  ·  Red = O₂-rich → body</text>
+        </svg>
+        <div class="cap">Heart chambers, valves &amp; great vessels — right side to lungs, left side to body</div>
+      </div>
+
+      <div class="topic" data-sys="Cardiovascular">
+        <h4><span class="tnum">5.1</span> Heart wall &amp; pericardium</h4>
+        <ul class="notes">
+          <li>Components: <b>heart, blood vessels, blood</b>.</li>
+          <li><b>Pericardium</b> (sac): outer <b>fibrous pericardium</b> (strong connective tissue); serous layers — <b>visceral = epicardium</b> (on the heart). <b>Pericardial space</b> holds serous fluid (prevents friction).</li>
+          <li>Heart wall layers: <b>epicardium</b> (outer, connective + fat) · <b>myocardium</b> (middle, cardiac muscle — does the contracting) · <b>endocardium</b> (inner, lines chambers &amp; valves).</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Cardiovascular">
+        <h4><span class="tnum">5.2</span> Chambers, valves &amp; blood flow</h4>
+        <ul class="notes">
+          <li><b>Atria</b> = thin-walled upper chambers (receive from veins), split by the <b>interatrial septum</b>. <b>Ventricles</b> = thick-walled lower chambers (pump out), split by the <b>interventricular septum</b>.</li>
+        </ul>
+        <table class="mini">
+          <caption>The four valves</caption>
+          <tr><th>Valve</th><th>Location</th></tr>
+          <tr><td>Tricuspid</td><td>right atrium → right ventricle</td></tr>
+          <tr><td>Bicuspid (mitral)</td><td>left atrium → left ventricle</td></tr>
+          <tr><td>Pulmonary semilunar</td><td>right ventricle → pulmonary artery</td></tr>
+          <tr><td>Aortic semilunar</td><td>left ventricle → aorta</td></tr>
+        </table>
+        <ul class="notes">
+          <li>AV valves (tri + bi) prevent backflow into the atria when ventricles contract.</li>
+          <li><b>Flow:</b> vena cava → RA → tricuspid → RV → pulmonary valve → <b>pulmonary arteries → lungs</b> → pulmonary veins → LA → mitral → LV → aortic valve → <b>aorta → body</b>.</li>
+          <li><b>Aorta</b> = largest artery. <b>Pulmonary arteries</b> = only arteries carrying <b>deoxygenated</b> blood; <b>pulmonary veins</b> = only veins carrying <b>oxygenated</b> blood. <b>Coronary arteries</b> feed the heart muscle. <b>Vena cava</b> = largest veins.</li>
+          <li><b>Pulmonary circuit</b> = heart ↔ lungs. <b>Systemic circuit</b> = heart ↔ rest of body.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Cardiovascular">
+        <h4><span class="tnum">5.3</span> Cardiac cycle &amp; conduction</h4>
+        <ul class="notes">
+          <li><b>Cardiac cycle</b> = one full heartbeat; ~<b>70/min</b> at rest. <b>Systole</b> = contraction; <b>diastole</b> = relaxation.</li>
+          <li>Heart sounds: <b>S1 "lub"</b> = AV valves close; <b>S2 "dub"</b> = semilunar valves close.</li>
+          <li>Conduction path: <b>SA node</b> (pacemaker) → <b>AV node</b> → <b>Bundle of His (AV bundle)</b> → <b>Purkinje fibers</b> → ventricles contract.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Cardiovascular">
+        <h4><span class="tnum">5.4</span> Blood vessels &amp; blood</h4>
+        <ul class="notes">
+          <li><b>Arteries</b> carry blood away from the heart (thick walls). <b>Veins</b> have <b>valves</b> → flow toward the heart. <b>Capillaries</b> = smallest, link arteries↔veins, one-cell-thick (<b>tunica intima</b> only) for exchange.</li>
+          <li>Vessel wall layers: <b>tunica intima</b> (inner endothelium) · <b>tunica media</b> (smooth muscle + elastic) · <b>tunica adventitia</b> (outer connective tissue).</li>
+          <li><b>Systolic</b> BP = max pressure during ventricular contraction; <b>diastolic</b> = min pressure when ventricles relax.</li>
+          <li>Plasma ≈ <b>92% water</b>, 7% proteins, 1% other.</li>
+          <li><b>RBCs (erythrocytes)</b> — carry O₂ via <b>hemoglobin</b>; made in <b>red bone marrow</b>; live ~<b>120 days</b>; removed by <b>spleen &amp; liver</b>.</li>
+          <li><b>WBCs (leukocytes)</b> — immunity. Granular: <b>neutrophils, eosinophils, basophils</b>. Agranular: <b>lymphocytes, monocytes</b>.</li>
+          <li><b>Platelets (thrombocytes)</b> — fragments that secrete clotting factors. Three blood functions: <b>transportation, regulation, protection</b>.</li>
+        </ul>
+        <div class="disease" data-sys="Cardiovascular">
+          <h5>Cardiomyopathy <span class="tag">Heart muscle</span></h5>
+          <p>Disease of the <b>heart muscle</b>; early stages may be symptom-free. Acquired causes: long-term high BP, heart-attack damage, metabolic disorders.</p>
+        </div>
+        <div class="disease" data-sys="Cardiovascular">
+          <h5>Arteriosclerosis / Atherosclerosis <span class="tag">Vessels</span></h5>
+          <p><b>Arteriosclerosis</b> = hardening/stiffening of artery walls. <b>Atherosclerosis</b> = buildup of fats, cholesterol &amp; other substances (<b>plaque</b>). Signs: chest pain, shortness of breath, dizziness, limb weakness.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= IMMUNE & LYMPHATIC ================= -->
+  <section class="system" id="Immune" style="--accent:var(--immune);">
+    <div class="system-head">
+      <span class="num">06</span>
+      <h3>Immune &amp; Lymphatic System</h3>
+      <span class="tagline">Three lines of defense · B &amp; T cells · antibodies · lymph</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 520 220" role="img" aria-label="Antibody and immune defense diagram">
+          <defs><style>
+            .il{fill:#aeb9d2;font:12px 'Segoe UI',sans-serif}
+            .ib{fill:#5fd97a;opacity:.16;stroke:#5fd97a;stroke-width:1.6}
+            .istk{stroke:#5fd97a;stroke-width:3;fill:none}
+          </style></defs>
+          <!-- three lines as stacked bars -->
+          <rect x="40" y="40" width="150" height="34" rx="8" class="ib"/>
+          <rect x="60" y="90" width="150" height="34" rx="8" class="ib"/>
+          <rect x="80" y="140" width="150" height="34" rx="8" class="ib"/>
+          <g class="il" fill="#dfe6f4">
+            <text x="115" y="62" text-anchor="middle">1st line — barriers</text>
+            <text x="135" y="112" text-anchor="middle">2nd line — innate</text>
+            <text x="155" y="162" text-anchor="middle">3rd line — adaptive</text>
+          </g>
+          <text x="40" y="200" class="il" fill="#8b97b0">Lines 1 &amp; 2 = non-specific · Line 3 = specific</text>
+          <!-- antibody Y -->
+          <g class="istk">
+            <path d="M400 150 L400 110"/>
+            <path d="M400 110 L375 75"/>
+            <path d="M400 110 L425 75"/>
+          </g>
+          <circle cx="375" cy="72" r="6" fill="#5fd97a"/><circle cx="425" cy="72" r="6" fill="#5fd97a"/>
+          <text x="400" y="180" text-anchor="middle" class="il" fill="#dfe6f4">Antibody (Y-shape)</text>
+        </svg>
+        <div class="cap">Three lines of defense + the Y-shaped antibody</div>
+      </div>
+
+      <div class="topic" data-sys="Immune">
+        <h4><span class="tnum">6.1</span> Innate immunity — lines of defense</h4>
+        <ul class="notes">
+          <li><b>1st line (barriers)</b> — skin, mucous membranes, tears, saliva, sebum, gastric juice. Non-specific; stops entry. Saliva &amp; tears carry antibacterial enzymes (lysozyme).</li>
+          <li><b>2nd line (innate, internal)</b> — phagocytes, natural killer cells, macrophages, antimicrobial proteins, <b>interferons</b>, complement proteins, fever, inflammation. Acts <b>after</b> entry; still non-specific.</li>
+          <li><b>3rd line (adaptive)</b> — lymphocytes, antibodies, memory cells. <b>Specific</b>. So: lines 1 &amp; 2 = innate/non-specific; line 3 = adaptive/specific.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Immune">
+        <h4><span class="tnum">6.2</span> B &amp; T cells (adaptive)</h4>
+        <ul class="notes">
+          <li>Adaptive immunity depends on <b>lymphocytes</b> → <b>B cells</b> &amp; <b>T cells</b>.</li>
+          <li><b>Cell-mediated immunity</b> — T cells destroy cells presenting an antigen. <b>Antibody-mediated (humoral) immunity</b> — B cells make antibodies against free antigens.</li>
+          <li><b>B cell clonal expansion</b> — triggered when the <b>BCR shape fits the antigen</b>. Most clones → <b>plasma cells</b> (secrete antibodies); some → <b>memory B cells</b> (long-term immunity, fast re-response → basis of vaccination).</li>
+          <li><b>Cytotoxic T cells</b> — directly kill abnormal/foreign/virus-infected cells. <b>Helper T cells</b> — secrete <b>cytokines</b> that activate other immune cells.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Immune">
+        <h4><span class="tnum">6.3</span> Antibodies &amp; disorders</h4>
+        <table class="mini">
+          <caption>The five antibody classes</caption>
+          <tr><th>Class</th><th>Key feature</th></tr>
+          <tr><td>IgG</td><td>main blood antibody; crosses the <b>placenta</b></td></tr>
+          <tr><td>IgM</td><td><b>first</b> to appear &amp; first to disappear in infection</td></tr>
+          <tr><td>IgA</td><td>in saliva, tears, mucus, <b>breast milk</b></td></tr>
+          <tr><td>IgD</td><td>antigen receptor on immature B cells</td></tr>
+          <tr><td>IgE</td><td>parasitic worms + <b>allergic</b> responses</td></tr>
+        </table>
+        <ul class="notes">
+          <li><b>Opsonization</b> — antibodies coat a pathogen so phagocytes engulf it more easily.</li>
+          <li><b>Active immunity</b> — your own plasma cells make antibodies (long-lasting). <b>Passive immunity</b> — antibodies from outside (e.g. newborn via breast milk).</li>
+        </ul>
+        <div class="disease" data-sys="Immune">
+          <h5>Type I Diabetes Mellitus <span class="tag">Autoimmune</span></h5>
+          <p>Immune system attacks the <b>pancreas</b> → impaired insulin production.</p>
+        </div>
+        <div class="disease" data-sys="Immune">
+          <h5>HIV / AIDS <span class="tag">Viral</span></h5>
+          <p>HIV infects &amp; inactivates <b>helper T cells</b>, progressively weakening immunity.</p>
+        </div>
+      </div>
+
+      <div class="topic" data-sys="Immune">
+        <h4><span class="tnum">6.4</span> Lymphatic system</h4>
+        <ul class="notes">
+          <li><b>Lymph</b> — clear fluid from <b>interstitial fluid</b>; rich in lymphocytes. No central pump → moved by <b>skeletal muscle contraction</b> + one-way valves, flowing <b>only toward the heart</b>.</li>
+          <li><b>Thoracic duct</b> — drains below the thorax + <b>left</b> arm &amp; left head/neck → left subclavian vein. <b>Right lymphatic duct</b> — right arm + right head/neck → right subclavian vein.</li>
+          <li><b>Primary lymphatic organs</b> — <b>red bone marrow</b> &amp; <b>thymus</b> (lymphocytes form/mature). <b>T cells</b> mature in the <b>thymus</b> (helped by thymosin).</li>
+          <li><b>Spleen</b> — largest lymphatic organ; red pulp filters blood &amp; stores RBCs, white pulp = immune. <b>Peyer's patches</b> — lymphatic tissue in the ileum.</li>
+        </ul>
+        <div class="disease" data-sys="Immune">
+          <h5>Lymphedema <span class="tag">Fluid buildup</span></h5>
+          <p>Abnormal lymph buildup (usually arms/legs) from underdeveloped vessels (primary) or damage from surgery/radiation/infection (secondary).</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DIGESTIVE ================= -->
+  <section class="system" id="Digestive" style="--accent:var(--digestive);">
+    <div class="system-head">
+      <span class="num">07</span>
+      <h3>Digestive System</h3>
+      <span class="tagline">GI tract mouth → anus · accessory organs · enzymes</span>
+    </div>
+    <div class="system-body">
+
+      <div class="figure">
+        <svg viewBox="0 0 520 250" role="img" aria-label="Digestive tract diagram">
+          <defs><style>
+            .dp{fill:none;stroke:#fb923c;stroke-width:2.4}
+            .df{fill:#fb923c;opacity:.16;stroke:#fb923c;stroke-width:1.6}
+            .dl{fill:#aeb9d2;font:11.5px 'Segoe UI',sans-serif}
+            .dk{stroke:#fb923c;stroke-width:1;opacity:.5}
+          </style></defs>
+          <!-- mouth -->
+          <circle cx="245" cy="28" r="9" class="df"/>
+          <!-- esophagus -->
+          <path class="dp" d="M245 37 L245 80"/>
+          <!-- stomach -->
+          <path class="df" d="M245 80 C290 82 300 120 270 130 C245 138 240 120 245 100 Z"/>
+          <!-- small intestine coil -->
+          <path class="dp" d="M260 132 C230 150 290 160 250 175 C210 188 285 195 245 208"/>
+          <!-- large intestine frame -->
+          <path class="dp" d="M210 150 L210 110 L300 110 L300 200 L250 215"/>
+          <!-- liver/pancreas blobs -->
+          <ellipse cx="190" cy="92" rx="20" ry="13" class="df"/>
+          <ellipse cx="300" cy="135" rx="16" ry="9" class="df"/>
+          <!-- labels -->
+          <g class="dl">
+            <text x="150" y="30" text-anchor="end">Mouth (oral cavity)</text><line class="dk" x1="154" y1="27" x2="236" y2="28"/>
+            <text x="150" y="64" text-anchor="end">Esophagus</text><line class="dk" x1="154" y1="61" x2="245" y2="58"/>
+            <text x="150" y="92" text-anchor="end">Liver</text><line class="dk" x1="154" y1="89" x2="170" y2="92"/>
+            <text x="360" y="92">Stomach</text><line class="dk" x1="356" y1="89" x2="278" y2="100"/>
+            <text x="360" y="135">Pancreas</text><line class="dk" x1="356" y1="132" x2="316" y2="135"/>
+            <text x="360" y="175">Small intestine</text><line class="dk" x1="356" y1="172" x2="262" y2="178"/>
+            <text x="360" y="208">Large intestine</text><line class="dk" x1="356" y1="205" x2="300" y2="195"/>
+          </g>
+        </svg>
+        <div class="cap">GI tract + accessory organs (liver, pancreas)</div>
+      </div>
+
+      <div class="topic" data-sys="Digestive">
+        <h4><span class="tnum">7.1</span> GI tract</h4>
+        <ul class="notes">
+          <li>Continuous tube from the <b>oral cavity (mouth)</b> to the <b>anus</b>.</li>
+          <li>Wall layers (inner → outer): <b>mucosa</b> (epithelial) · submucosa · muscularis · serosa.</li>
+          <li><b>Peristalsis</b> — involuntary wave-like contractions that propel food.</li>
+          <li><b>Salivary amylase</b> begins <b>starch</b> digestion in the mouth. In the stomach, <b>HCl</b> converts <b>pepsinogen → active pepsin</b>.</li>
+          <li><b>Pyloric sphincter</b> — controls <b>chyme</b> exit from stomach → duodenum.</li>
+          <li>Small intestine: <b>duodenum</b> (first, from pylorus) → jejunum → ileum. <b>Villi</b> = nutrient absorption units.</li>
+          <li>Large intestine — absorbs <b>water</b>, forms <b>feces</b>. <b>Rectum</b> = last part before the anus.</li>
+        </ul>
+      </div>
+
+      <div class="topic" data-sys="Digestive">
+        <h4><span class="tnum">7.2</span> Accessory organs &amp; enzymes</h4>
+        <ul class="notes">
+          <li><b>Liver</b> makes <b>bile</b>; the <b>gallbladder</b> only stores &amp; concentrates it. Liver also stores <b>glycogen</b>, stores vitamins/minerals, and detoxifies. <b>Bilirubin</b> (bile pigment) comes from breaking down <b>hemoglobin</b>.</li>
+          <li><b>Bile salts</b> emulsify fats into smaller droplets (don't break proteins).</li>
+          <li><b>Pancreas</b> = mixed gland: exocrine enzymes + endocrine islets (insulin). <b>Lipase</b> breaks down fats.</li>
+          <li>Three major salivary gland pairs: <b>parotid, submandibular, sublingual</b>.</li>
+        </ul>
+        <table class="mini">
+          <caption>End products of digestion</caption>
+          <tr><th>Nutrient</th><th>End product</th></tr>
+          <tr><td>Protein</td><td>amino acids (pepsin, trypsin, peptidases)</td></tr>
+          <tr><td>Carbohydrate</td><td>monosaccharides e.g. glucose (amylase, lactase…)</td></tr>
+          <tr><td>Fat</td><td>fatty acids + glycerol (lipase)</td></tr>
+        </table>
+      </div>
+
+      <div class="topic" data-sys="Digestive">
+        <h4><span class="tnum">7.3</span> GI Diseases</h4>
+        <div class="disease" data-sys="Digestive">
+          <h5>Celiac Disease <span class="tag">Autoimmune</span></h5>
+          <p>Immune reaction to <b>gluten</b> (wheat, barley, rye) damages the <b>villi</b> of the small intestine → poor absorption.</p>
+        </div>
+        <div class="disease" data-sys="Digestive">
+          <h5>Crohn's Disease &amp; Ulcerative Colitis <span class="tag">IBD</span></h5>
+          <p><b>Crohn's</b> — ulcers anywhere, typically small intestine + upper large intestine. <b>Ulcerative colitis</b> — starts in the rectum, spreads through the colon. Shared signs: chronic diarrhea, abdominal pain, blood in stool, fatigue.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="noresults" id="noResults">No notes match that search. Try another term or hit <b>Clear</b>.</div>
+
+  <footer>
+    Study notes condensed from your 7-system master question bank · Batterjee Medical College, Preparatory Year.<br>
+    Diagrams are hand-drawn schematics for quick recall — not a substitute for your lecture slides. Tip: <kbd>Ctrl/Cmd&nbsp;+&nbsp;P</kbd> to save as PDF.
+  </footer>
+</div>
+
+<button id="toTop" title="Back to top">↑</button>
+
+<script>
+  const systemColors = {
+    all:'--endocrine', Endocrine:'--endocrine', Nervous:'--nervous', Respiratory:'--respiratory',
+    Urinary:'--urinary', Cardiovascular:'--cardiovascular', Immune:'--immune', Digestive:'--digestive'
+  };
+  const pills = document.querySelectorAll('.pill');
+  const systems = document.querySelectorAll('.system');
+  const root = document.documentElement;
+  const brandAccent = document.getElementById('brandAccent');
+
+  /* ---- pill navigation ---- */
+  pills.forEach(p=>{
+    p.addEventListener('click', ()=>{
+      const sys = p.dataset.sys;
+      if(sys === 'all'){
+        window.scrollTo({top:0, behavior:'smooth'});
+      } else {
+        document.getElementById(sys).scrollIntoView({behavior:'smooth', block:'start'});
+      }
+      setActivePill(sys);
+    });
+  });
+  function setActivePill(sys){
+    pills.forEach(p=>p.classList.toggle('active', p.dataset.sys===sys));
+    root.style.setProperty('--accent', `var(${systemColors[sys]||'--endocrine'})`);
+  }
+
+  /* ---- scrollspy ---- */
+  const spy = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        setActivePill(e.target.id);
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+  systems.forEach(s=>spy.observe(s));
+
+  /* ---- search ---- */
+  const search = document.getElementById('search');
+  const clearBtn = document.getElementById('clearBtn');
+  const noResults = document.getElementById('noResults');
+  const topics = document.querySelectorAll('.topic, .disease');
+
+  function clearHighlights(el){
+    el.querySelectorAll('mark').forEach(m=>{
+      m.replaceWith(document.createTextNode(m.textContent));
+    });
+    el.normalize();
+  }
+  function highlight(el, q){
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const targets = [];
+    while(walker.nextNode()){
+      const n = walker.currentNode;
+      if(n.nodeValue.toLowerCase().includes(q) && n.parentNode.nodeName!=='MARK'){
+        targets.push(n);
+      }
+    }
+    targets.forEach(n=>{
+      const frag = document.createDocumentFragment();
+      let txt = n.nodeValue, low = txt.toLowerCase(), i=0, idx;
+      while((idx = low.indexOf(q, i)) !== -1){
+        frag.appendChild(document.createTextNode(txt.slice(i, idx)));
+        const mk = document.createElement('mark');
+        mk.textContent = txt.slice(idx, idx+q.length);
+        frag.appendChild(mk);
+        i = idx + q.length;
+      }
+      frag.appendChild(document.createTextNode(txt.slice(i)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+
+  function runSearch(){
+    const q = search.value.trim().toLowerCase();
+    topics.forEach(clearHighlights);
+
+    if(!q){
+      topics.forEach(t=>t.classList.remove('hidden'));
+      systems.forEach(s=>s.classList.remove('dim'));
+      noResults.classList.remove('show');
+      return;
+    }
+    let anyMatch = false;
+    systems.forEach(sys=>{
+      let sysHas = false;
+      sys.querySelectorAll('.topic, .disease').forEach(block=>{
+        const hit = block.textContent.toLowerCase().includes(q);
+        block.classList.toggle('hidden', !hit);
+        if(hit){ sysHas = true; anyMatch = true; highlight(block, q); }
+      });
+      sys.classList.toggle('dim', !sysHas);
+    });
+    noResults.classList.toggle('show', !anyMatch);
+  }
+
+  search.addEventListener('input', runSearch);
+  clearBtn.addEventListener('click', ()=>{ search.value=''; runSearch(); search.focus(); });
+
+  /* ---- back to top ---- */
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', ()=>{
+    toTop.classList.toggle('show', window.scrollY > 600);
+  });
+  toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+</script>
+</body>
+</html>
